@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <title>Mit Excel Add-in</title>
+    <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+</head>
+<body>
+    <div id="content-header">
+        <h1>Velkommen til Mit Add-in</h1>
+    </div>
+    
+    <div id="content-main">
+        <button id="run" class="ms-Button">Kør Funktion</button>
+        <br/><br/>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        Office.onReady(function() {
+            document.getElementById("run").onclick = run;
+        });
+
+        function run() {
+            Excel.run(function(context) {
+                const range = context.workbook.getSelectedRange();
+                range.format.fill.color = "green";
+                return context.sync();
+            }).catch(function(error) {
+                console.log("Error: " + error);
+                if (error instanceof OfficeExtension.Error) {
+                    console.log("Debug info: " + JSON.stringify(error.debugInfo));
+                }
+            });
+        }
+    </script>
+</body>
+</html>
