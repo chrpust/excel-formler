@@ -12,8 +12,7 @@
     <Host Name="Workbook"/>
   </Hosts>
   <DefaultSettings>
-    <SourceLocation DefaultValue="https://github.com/chrpust/excel-formler/blob/main/taskpane.html"/>
+    <SourceLocation DefaultValue="https://chrpust.github.io/excel-formler/manifest.xml"/>
   </DefaultSettings>
   <Permissions>ReadWriteDocument</Permissions>
-
 </OfficeApp>
